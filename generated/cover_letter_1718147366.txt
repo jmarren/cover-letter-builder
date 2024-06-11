@@ -1,0 +1,38 @@
+
+Dear Jane Doe,
+
+I am writing to express my interest in the Software Engineer position at Tech Innovators Inc. as advertised
+on LinkedIn. With a robust background in web development, a deep
+understanding of full-stack technologies, and a passion for solving complex problems, I am
+confident in my ability to contribute effectively to your team.
+
+As a freelance web developer, I have honed my skills in languages such as
+TypeScript/JavaScript, Golang, SQL, Java, and Gleam, delivering responsive and
+user-friendly web applications. My expertise in creating seamless user experiences and efficient
+backend systems is complemented by my proficiency in using cloud providers like AWS, Digital
+Ocean, Firebase, and Vercel. Additionally, my experience with Docker, Terraform,
+PostgreSQL, and Nginx underscores my capability to manage diverse technology stacks and adapt to new challenges.
+
+One of my recent projects was a cloud-based SaaS application that allows users to clone their
+data from a popular CRM for enhanced analytical tooling. This application automates user
+onboarding via API keys and ensures data is updated at regular intervals, demonstrating my
+ability to deliver high-availability solutions.
+
+I have also recently embarked on learning Gleam, the first type-safe language to run on the
+Erlang Virtual Machine. This endeavor aims to expand my ability to deploy highly concurrent
+and fault-tolerant backend systems and contribute to the evolution of this innovative technology.
+
+What excites me most about the opportunity at Tech Innovators Inc. is the prospect of working in
+a dynamic environment where I can contribute to groundbreaking projects and collaborate with
+talented professionals. I am particularly drawn to Tech Innovators Inc.'s [mention something
+specific about the company’s products, culture, or values], and I believe my skills and enthusiasm align well with your team’s goals.
+
+I am eager to bring my web development expertise, proficiency in modern technologies, and
+commitment to excellence to Tech Innovators Inc.. I look forward to discussing how my
+background and skills can contribute to your team’s success.
+
+Thank you for considering my application. I am enthusiastic about the possibility of working
+together and contributing to the continued growth and success of Tech Innovators Inc.
+
+Sincerely,
+John Marren
