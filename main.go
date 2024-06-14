@@ -81,8 +81,8 @@ func main() {
 		"[role title]":                  config.RoleTitle,
 		"[Company's Name]":              config.CompanyName,
 		"[Job Board/Company's Website]": config.JobBoard,
-		"[mention something specific about the company’s products, culture, or values]": config.CompanySpecificMention,
-		"[Your Name]": config.YourName,
+		"[company_specific_mention]":    config.CompanySpecificMention,
+		"[Your Name]":                   config.YourName,
 	}
 
 	// Generate the cover letter
