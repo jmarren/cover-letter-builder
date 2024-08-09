@@ -6,7 +6,6 @@ import (
 	"os"
 	"strings"
 
-	"github.com/signintech/gopdf"
 	"gopkg.in/yaml.v2"
 )
 
@@ -87,7 +86,7 @@ func main() {
 	}
 
 	// Generate the cover letter
-	templateFile := "templates/draft-1.txt"
+	templateFile := "templates/draft-2.txt"
 	coverLetter, err := generateCoverLetter(templateFile, replacements)
 	if err != nil {
 		fmt.Println("Error generating cover letter:", err)
@@ -104,67 +103,20 @@ func main() {
 		}
 	}
 
-	// Generate PDF
-	outputPDF := fmt.Sprintf("%s/cover_letter_%s.pdf", outputDir, config.CompanyName)
-	err = generatePDF(coverLetter, outputPDF)
+	outputFile := fmt.Sprintf("%s/cover_letter_%s.txt", outputDir, config.CompanyName)
+	file, err := os.Create(outputFile)
 	if err != nil {
-		fmt.Println("Error generating PDF:", err)
+		fmt.Println("Error creating output file:", err)
+		return
+	}
+	defer file.Close()
+
+	// Write the generated cover letter to the file
+	_, err = file.WriteString(coverLetter)
+	if err != nil {
+		fmt.Println("Error writing to output file:", err)
 		return
 	}
 
-	fmt.Printf("Cover letter generated successfully: %s\n", outputPDF)
-}
-
-// Function to generate a PDF from the cover letter content
-// Function to generate a PDF from the cover letter content
-func generatePDF(content, outputFile string) error {
-	pdf := gopdf.GoPdf{}
-	pdf.Start(gopdf.Config{PageSize: *gopdf.PageSizeA4})
-	pdf.AddPage()
-
-	// Add a basic font
-	fontPath := "./assets/Times_New_Roman.ttf"
-	err := pdf.AddTTFFont("times_new_roman", fontPath)
-	if err != nil {
-		return fmt.Errorf("could not add font from %s: %v", fontPath, err)
-	}
-
-	// Set the font. The font name here must match the one used in AddTTFFont
-	err = pdf.SetFont("times_new_roman", "", 14)
-	if err != nil {
-		return fmt.Errorf("could not set font: %v", err)
-	}
-
-	// Set the margins
-	pdf.SetMargins(20, 30, 20, 30)
-
-	// Set the starting position
-	pdf.SetX(20)
-	pdf.SetY(30)
-
-	// Define a width for the MultiCell. Use the full page width minus margins.
-	pageWidth := 595.28
-	// pageWidth := pdf.GetX()
-	// pageWidth, _ := gopdf.PageSizeA4.Width()
-	margin := 20.0
-	width := pageWidth - 2*margin
-
-	// Assume a reasonable height for the content cell
-	height := pdf.GetY() + 200.0 // Adjust the height as needed
-
-	// Write content to PDF using MultiCell with specified width and height
-	rect := &gopdf.Rect{W: width, H: height}
-	fmt.Printf("Writing content to PDF with width: %f and height: %f\n", rect.W, rect.H)
-	err = pdf.MultiCell(rect, content)
-	if err != nil {
-		return fmt.Errorf("could not write content to pdf: %v", err)
-	}
-
-	// Save the PDF
-	err = pdf.WritePdf(outputFile)
-	if err != nil {
-		return fmt.Errorf("could not write pdf: %v", err)
-	}
-
-	return nil
+	fmt.Printf("Cover letter generated successfully: %s\n", outputFile)
 }
